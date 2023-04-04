@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { CatResolver } from './cat/cat.resolver';
 import { CatService } from './cat/cat.service';
 import { ApolloDriver } from '@nestjs/apollo';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -13,6 +14,11 @@ import { ApolloDriver } from '@nestjs/apollo';
       autoSchemaFile: 'schema.gql',
       context: ({ req }) => ({ req }),
       installSubscriptionHandlers: true,
+    }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: [`.env.${process.env.NODE_ENV}`],
+      load: [],
     }),
   ],
   controllers: [AppController],
