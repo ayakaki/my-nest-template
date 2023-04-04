@@ -1,31 +1,31 @@
 import { Injectable } from '@nestjs/common';
-import { Cat } from './cat.entity';
+import { User } from './user.entity';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
-export class CatService {
-  private readonly cats: Cat[] = [];
+export class UserService {
+  private readonly users: User[] = [];
   constructor(private configService: ConfigService) {
     console.log(this.configService.get('ENV_INFO'));
   }
 
 
-  create(cat: Cat) {
-    this.cats.push(cat);
+  create(user: User) {
+    this.users.push(user);
   }
 
-  findAll(): Cat[] {
-    return this.cats;
+  findAll(): User[] {
+    return this.users;
   }
 
   // シードメソッドを追加
   seed() {
-    const sampleCat: Cat = {
+    const sampleUser: User = {
       id: 1,
-      name: 'Sample Cat',
+      name: 'Taro',
       age: 3,
-      breed: 'Abyssinian',
+      from: 'tokyo',
     };
-    this.create(sampleCat);
+    this.create(sampleUser);
   }
 }

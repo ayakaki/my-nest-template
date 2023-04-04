@@ -1,13 +1,13 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { CatService } from './cat/cat.service';
+import { UserService } from './user/user.service';
 
 @Injectable()
 export class AppService implements OnModuleInit {
-  constructor(private catService: CatService) {}
+  constructor(private userService: UserService) {}
 
   // モジュール初期化時にシードメソッドを実行
   async onModuleInit() {
-    this.catService.seed();
+    this.userService.seed();
   }
 
   getHello(): string {

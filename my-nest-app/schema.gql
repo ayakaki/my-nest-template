@@ -2,13 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Cat {
+type User {
   id: Int!
   name: String!
   age: Int!
-  breed: String!
+  from: String!
 }
 
 type Query {
-  cats: [Cat!]!
+  users: [User!]!
 }

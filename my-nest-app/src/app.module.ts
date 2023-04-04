@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatResolver } from './cat/cat.resolver';
-import { CatService } from './cat/cat.service';
 import { ApolloDriver } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
+import { UserResolver } from './user/user.resolver';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
@@ -22,6 +22,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, CatResolver, CatService],
+  providers: [AppService, UserService, UserResolver],
 })
+
 export class AppModule {}
