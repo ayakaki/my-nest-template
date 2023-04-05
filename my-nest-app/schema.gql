@@ -6,7 +6,7 @@ type User {
   id: Int!
   name: String!
   age: Int!
-  from: String!
+  birthPlace: String!
 }
 
 type Query {

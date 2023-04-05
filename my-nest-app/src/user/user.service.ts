@@ -24,7 +24,7 @@ export class UserService {
       id: 1,
       name: 'Taro',
       age: 3,
-      from: 'tokyo',
+      birthPlace: 'tokyo',
     };
     this.create(sampleUser);
   }

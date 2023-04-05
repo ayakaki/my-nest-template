@@ -12,5 +12,5 @@ export class User {
   age: number;
 
   @Field()
-  from: string;
+  birthPlace: string;
 }
