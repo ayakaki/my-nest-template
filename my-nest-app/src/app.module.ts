@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApolloDriver } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
@@ -21,7 +20,6 @@ import { UserService } from './user/user.service';
       load: [],
     }),
   ],
-  controllers: [AppController],
   providers: [AppService, UserService, UserResolver],
 })
 
