@@ -6,7 +6,7 @@ import { User } from './user.entity';
 export class UserResolver {
   constructor(private userService: UserService) {}
 
-  @Query(() => [User])
+  @Query(() => [User], { name: 'getAllUsers' })
   async users(): Promise<User[]> {
     return this.userService.findAll();
   }

@@ -29,9 +29,9 @@ import { join } from 'path';
       username: 'user-graphql-trial',
       password: 'P_ssw0rd',
       database: 'graphql_trial_db',
-      // entities: ['src/**/*.entity{.ts,.js}'],
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
+      logging: false
     }),
   ],
   providers: [AppService],
