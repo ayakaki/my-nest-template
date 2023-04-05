@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { User } from './user.entity';
-import { ConfigService } from '@nestjs/config';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class UserService {
-  private readonly users: User[] = [];
-  constructor(private configService: ConfigService) {
-    console.log(this.configService.get('ENV_INFO'));
-  }
+  private users: User[] = [];
+  constructor(
+    // @InjectRepository(User)
+    // private readonly userRepository: Repository<User>,
+  ) {}
   
   // モジュール初期化時にシードメソッドを実行
   async onModuleInit() {
@@ -20,16 +22,18 @@ export class UserService {
 
   findAll(): User[] {
     return this.users;
+    // return await this.userRepository.find();
   }
 
   // シードメソッドを追加
   seed() {
-    const sampleUser: User = {
+    let sampleUser: User = {
       id: 1,
       name: 'Taro',
       age: 3,
       birthPlace: 'tokyo',
     };
+
     this.create(sampleUser);
   }
 }
