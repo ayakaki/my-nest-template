@@ -8,7 +8,11 @@ export class UserService {
   constructor(private configService: ConfigService) {
     console.log(this.configService.get('ENV_INFO'));
   }
-
+  
+  // モジュール初期化時にシードメソッドを実行
+  async onModuleInit() {
+    this.seed();
+  }
 
   create(user: User) {
     this.users.push(user);

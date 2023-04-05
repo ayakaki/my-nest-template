@@ -2,13 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  id: Int!
-  name: String!
-  age: Int!
-  birthPlace: String!
-}
-
 type Query {
   users: [User!]!
+}
+
+type User {
+  age: Int!
+  birthPlace: String!
+  id: Int!
+  name: String!
 }

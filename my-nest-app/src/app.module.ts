@@ -3,14 +3,14 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { AppService } from './app.service';
 import { ApolloDriver } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
-import { UserResolver } from './user/user.resolver';
-import { UserService } from './user/user.service';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
+      sortSchema: true,
       context: ({ req }) => ({ req }),
       installSubscriptionHandlers: true,
     }),
@@ -19,8 +19,9 @@ import { UserService } from './user/user.service';
       envFilePath: [`.env.${process.env.NODE_ENV}`],
       load: [],
     }),
+    UserModule,
   ],
-  providers: [AppService, UserService, UserResolver],
+  providers: [AppService],
 })
 
 export class AppModule {}
