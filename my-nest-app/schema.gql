@@ -2,8 +2,14 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Mutation {
+  createUser(age: Float!, birthPlace: String!, name: String!): User!
+}
+
 type Query {
-  getAllUsers: [User!]!
+  allUsers: [User!]!
+  userById(id: Float!): User!
+  usersByAge(age: Float!): [User!]!
 }
 
 type User {

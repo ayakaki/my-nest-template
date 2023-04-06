@@ -14,5 +14,16 @@ export class UserRepository {
     return await this.repository.find();
   }
 
-  // Add more custom methods as needed
+  async findByAge(age: number): Promise<User[]> {
+    return await this.repository.find({where: {age: age}});
+  }
+
+  async findById(id: number): Promise<User> {
+    return await this.repository.findOne({where:{id}});
+  }
+
+  async createUser(name: string, age: number, birthPlace: string): Promise<User> {
+    return await this.repository.save({name, age, birthPlace});
+  }
+
 }

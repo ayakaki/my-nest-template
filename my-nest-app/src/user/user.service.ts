@@ -9,8 +9,19 @@ export class UserService {
   
 
   async findAll(): Promise<User[]> {
-    console.log("findAll")
     return await this.userRepository.findAll();
+  }
+
+  async findByAge(age: number): Promise<User[]> {
+    return await this.userRepository.findByAge(age);
+  }
+
+  async findById(id: number): Promise<User> {
+    return await this.userRepository.findById(id);
+  }
+
+  async createUser(name: string, age: number, birthPlace: string): Promise<User> {
+    return await this.userRepository.createUser(name, age, birthPlace);
   }
 
 }
