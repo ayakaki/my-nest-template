@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { UserService } from './user.service';
-import { UserResolver } from './user.resolver';
-import { User } from './user.entity';
+import { UserService } from '../application/services/user.service';
+import { UserResolver } from '../interfaces/resolovers/user.resolver';
+import { User } from '../domain/entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserRepository } from './user.repository';
+import { UserRepository } from '../domain/repositories/user.repository';
 
 @Module({
   imports: [
