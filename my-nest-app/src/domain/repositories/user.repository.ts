@@ -38,4 +38,16 @@ export class UserRepository {
 
     return await this.repository.save(user);
   }
+
+  async deleteUser(id: number): Promise<boolean> {
+    const user = await this.repository.findOne({where:{id: id}});
+
+    if (!user) {
+      throw new Error(`User with ID ${id} not found`);
+    }
+
+    await this.repository.delete(id);
+
+    return true;
+  }
 }

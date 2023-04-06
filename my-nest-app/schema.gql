@@ -10,6 +10,7 @@ input CreateUserDto {
 
 type Mutation {
   createUser(data: CreateUserDto!): User!
+  deleteUser(id: Float!): Boolean!
   updateUser(data: UpdateUserDto!): User!
 }
 

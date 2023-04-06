@@ -29,4 +29,8 @@ export class UserService implements IUserService{
     return await this.userRepository.updateUser(updateUserDto);
   }
 
+  async deleteUser(id: number): Promise<boolean> {
+    return await this.userRepository.deleteUser(id);
+  }
+
 }

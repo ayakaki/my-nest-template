@@ -8,4 +8,5 @@ export interface IUserService {
   findById(id: number): Promise<User>;
   createUser(createUserDto: CreateUserDto): Promise<User>;
   updateUser(updateUserDto: UpdateUserDto): Promise<User>;
+  deleteUser(id: number): Promise<boolean>;
 }

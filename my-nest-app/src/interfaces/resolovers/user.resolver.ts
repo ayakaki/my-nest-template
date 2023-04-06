@@ -40,4 +40,10 @@ export class UserResolver {
     return await this.userService.updateUser(updateUserDto);
   }
 
+  // 一件削除
+  @Mutation(() => Boolean)
+  async deleteUser(@Args('id') id: number): Promise<boolean> {
+    return await this.userService.deleteUser(id);
+  }
+
 }
