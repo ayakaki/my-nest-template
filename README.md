@@ -9,9 +9,9 @@
   - 開発環境：npm run start:dev
   - 本番環境：npm run start:production
 - クリーンアーキテクチャをベースにディレクトリ構成
+- CRUD処理のサンプル記載
 
 ## TODO
-- CRUD処理のサンプル記載
   - 複数のテーブルからの情報を集結
 - GraphQLのベストプラクティスに沿ったクエリ名
 - `typeORM`を用いたマイグレーション
