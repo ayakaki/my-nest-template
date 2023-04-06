@@ -10,12 +10,20 @@ input CreateUserDto {
 
 type Mutation {
   createUser(data: CreateUserDto!): User!
+  updateUser(data: UpdateUserDto!): User!
 }
 
 type Query {
   allUsers: [User!]!
   userById(id: Float!): User!
   usersByAge(age: Float!): [User!]!
+}
+
+input UpdateUserDto {
+  age: Int
+  birthPlace: String
+  id: Int!
+  name: String
 }
 
 type User {
