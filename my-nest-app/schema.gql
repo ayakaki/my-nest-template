@@ -5,13 +5,14 @@
 input CreateUserDto {
   age: Int!
   birthPlace: String!
-  name: String!
+  firstName: String!
+  lastName: String!
 }
 
 type Mutation {
-  createUser(data: CreateUserDto!): User!
-  deleteUser(id: Float!): Boolean!
-  updateUser(data: UpdateUserDto!): User!
+  destoryUser(id: Float!): Boolean!
+  editUser(data: UpdateUserDto!): User!
+  registerUser(data: CreateUserDto!): User!
 }
 
 type Query {
@@ -23,13 +24,19 @@ type Query {
 input UpdateUserDto {
   age: Int
   birthPlace: String
+  firstName: String
   id: Int!
-  name: String
+  lastName: String
 }
 
 type User {
   age: Int!
   birthPlace: String!
+  createdAt: String!
+  createdBy: String!
+  firstName: String!
   id: Int!
-  name: String!
+  lastName: String!
+  updatedAt: String!
+  updatedBy: String!
 }

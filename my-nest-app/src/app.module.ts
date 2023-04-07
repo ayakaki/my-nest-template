@@ -5,13 +5,13 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './modules/user.module';
 import { join } from 'path';
-import { TypeOrmConfigService } from './infrastructure/orm/typeorm.config';
+import { TypeOrmConfigService } from './config/orm/typeorm.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: [`.env.${process.env.NODE_ENV}`],
+      envFilePath: [`src/config/envs/.env.${process.env.NODE_ENV}`],
       load: [],
     }),
     GraphQLModule.forRoot({

@@ -4,6 +4,7 @@ import { join } from 'path';
 import { ConfigService } from '@nestjs/config';
 
 export const TypeOrmConfigService: TypeOrmModuleAsyncOptions = {
+
   useFactory: async (configService: ConfigService) => ({
     type: 'mysql',
     host: configService.get<string>('DB_HOST'),
@@ -12,6 +13,7 @@ export const TypeOrmConfigService: TypeOrmModuleAsyncOptions = {
     password: configService.get<string>('DB_PASSWORD'),
     database: configService.get<string>('DB_NAME'),
     entities: [join(__dirname, '..', '..', '**', '*.entity.{ts,js}')],
+    synchronize: true,
   }),
   inject: [ConfigService],
 };

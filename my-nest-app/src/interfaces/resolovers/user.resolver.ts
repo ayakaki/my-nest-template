@@ -1,49 +1,48 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
-import { UserService } from '../../application/services/user.service';
 import { User } from '../../domain/entities/user.entity';
 import { CreateUserDto } from '../dtos/create-user.dto';
 import { UpdateUserDto } from '../dtos/update-user.dto';
+import { UserUseCase } from 'src/application/use_cases/user.use-case';
 
 @Resolver(() => User)
 export class UserResolver {
-  constructor(private userService: UserService) {}
+  constructor(private userUseCase: UserUseCase) {}
 
   // 複数件取得
   @Query(() => [User])
   async allUsers(): Promise<User[]> {
-    return this.userService.findAll();
+    return this.userUseCase.findAllUsers();
   }
 
   // 複数件取得 (条件付き)
   @Query(() => [User])
   async usersByAge(@Args('age') age: number): Promise<User[]> {
-    return this.userService.findByAge(age);
+    return this.userUseCase.findUsersByAge(age);
   }
 
   // 一件取得
   @Query(() => User)
   async userById(@Args('id') id: number): Promise<User> {
-    return this.userService.findById(id);
+    return this.userUseCase.findUserById(id);
   }
 
   // 一件登録
   @Mutation(() => User)
-  async createUser(@Args('data') createUserDto: CreateUserDto,): Promise<User> {
-
-    return await this.userService.createUser(createUserDto);
+  async registerUser(@Args('data') createUserDto: CreateUserDto,): Promise<User> {
+    return await this.userUseCase.registerUser(createUserDto);
   }
 
   // 一件更新
   @Mutation(() => User)
-  async updateUser(@Args('data') updateUserDto: UpdateUserDto,): Promise<User> {
+  async editUser(@Args('data') updateUserDto: UpdateUserDto,): Promise<User> {
 
-    return await this.userService.updateUser(updateUserDto);
+    return await this.userUseCase.editUser(updateUserDto);
   }
 
   // 一件削除
   @Mutation(() => Boolean)
-  async deleteUser(@Args('id') id: number): Promise<boolean> {
-    return await this.userService.deleteUser(id);
+  async destoryUser(@Args('id') id: number): Promise<boolean> {
+    return await this.userUseCase.destoryUser(id);
   }
 
 }

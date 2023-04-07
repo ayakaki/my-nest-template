@@ -6,7 +6,12 @@ export class CreateUserDto {
   @Field()
   @IsNotEmpty()
   @IsString()
-  name: string;
+  lastName: string;
+
+  @Field()
+  @IsNotEmpty()
+  @IsString()
+  firstName: string;
 
   @Field(() => Int)
   @IsNotEmpty()
