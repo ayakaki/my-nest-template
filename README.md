@@ -11,6 +11,7 @@
 - クリーンアーキテクチャをベースにディレクトリ構成
 - CRUD処理のサンプル記載
 - `typeORM`を用いたマイグレーション
+- Dockerコンテナ化
 
 ## HOW TO USE
 1. my-nest-appディレクトリ配下を複製し、対象ディレクトリに移動する
@@ -31,6 +32,4 @@
 `docker-compose exec db mysql -u user-graphql-trial -pP_ssw0rd -h db`
 
 ## TODO
-- データベースをDockerコンテナ化して確認容易性を向上
-  - シードデータを含める
 - `.vscode/setting.json`に設定記載
