@@ -12,6 +12,24 @@
 - CRUD処理のサンプル記載
 - `typeORM`を用いたマイグレーション
 
+## HOW TO USE
+1. my-nest-appディレクトリ配下を複製し、対象ディレクトリに移動する
+2. .gitフォルダを削除
+3. package.jsonの`name`を書き換える
+
+## BEHAVIOR CONFIRMATION
+### MySQLのdockerコンテナを起動する
+下記コマンドを実行
+`docker-compose up -d`
+
+### アプリケーションを立ち上げる
+下記コマンドを実行（ローカルでの起動例）
+`npm run start:local`
+
+### ※ Dockerコンテナ内のMySQLを操作する
+下記コマンドを事項する
+`docker-compose exec db mysql -u user-graphql-trial -pP_ssw0rd -h db`
+
 ## TODO
 - データベースをDockerコンテナ化して確認容易性を向上
   - シードデータを含める
